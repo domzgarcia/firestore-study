@@ -40,17 +40,17 @@
 	// 	renderCafe(doc)
 	// })
 
-	db.collection('cafes').orderBy('city').onSnapshot( (snapshot) => {
-		let changes = snapshot.docChanges()
-		changes.forEach( (change) => {
-			if(change.type === 'added'){
-				renderCafe(change.doc)
-			}else if(change.type === 'removed'){
-				let li = cafeList.querySelector('[data-id='+change.doc.id+']')
-				cafeList.removeChild(li)
-			}
-		})
-	})
+	// db.collection('cafes').orderBy('city').onSnapshot( (snapshot) => {
+	// 	let changes = snapshot.docChanges()
+	// 	changes.forEach( (change) => {
+	// 		if(change.type === 'added'){
+	// 			renderCafe(change.doc)
+	// 		}else if(change.type === 'removed'){
+	// 			let li = cafeList.querySelector('[data-id='+change.doc.id+']')
+	// 			cafeList.removeChild(li)
+	// 		}
+	// 	})
+	// })
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault()
@@ -59,4 +59,18 @@
 		form.name.value = ''
 		form.city.value = ''
 	})
+
+	db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
+	    let changes = snapshot.docChanges()
+	    changes.forEach(change => {
+	        console.log(change.doc.data())
+	        if(change.type == 'added'){
+	            renderCafe(change.doc)
+	        } else if (change.type == 'removed'){
+	            let li = cafeList.querySelector('[data-id=' + change.doc.id + ']')
+	            cafeList.removeChild(li)
+	        }
+	    })
+	});
+
 })()
