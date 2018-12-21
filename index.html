@@ -1,19 +1,39 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <!-- only sdk app and firestore -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
     </head>
     <body>
 
-        <h1>Cloud Cafe</h1>
+        <h1>CloudTuts</h1>
 
         <div class="content">
-
-            <form id="add-cafe-form"></form>
+            <form id="add-cafe-form">
+                <input id="text" name="name" placeholder="cafe name" />
+                <input id="text" name="city" placeholder="cafe city" />
+                <button type="submit">ADD CAFE</button>
+            </form>
 
             <ul id="cafe-list"></ul>
 
         </div>
 
+        <script>
+          // Initialize Firebase
+            let config = {
+                apiKey: "AIzaSyDN4Q6LyE8pOXXNTw6glHGRpAZ0OfMkUFA",
+                authDomain: "ninja-firebase-tuts-8a21f.firebaseapp.com",
+                databaseURL: "https://ninja-firebase-tuts-8a21f.firebaseio.com",
+                projectId: "ninja-firebase-tuts-8a21f",
+                storageBucket: "ninja-firebase-tuts-8a21f.appspot.com",
+                messagingSenderId: "48722916478"
+            };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({timestampsInSnapshots: true}); // working with snapshots in firestore
+        </script>
         <script src="app.js"></script>
     </body>
 </html>

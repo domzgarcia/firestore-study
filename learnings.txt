@@ -1,0 +1,15 @@
+Datatype
+number
+boolean
+map
+array
+null
+timestamp
+geopoint
+reference
+
+[mongodb]
+collections - are like the tables
+documents   - are the new data added to collections filled with;
+fields		- the structure of documents
+
