@@ -8,8 +8,15 @@ timestamp
 geopoint
 reference
 
-[mongodb]
+[]
 collections - are like the tables
 documents   - are the new data added to collections filled with;
 fields		- the structure of documents
+
+
+Reference
+---------
+https://codelabs.developers.google.com/codelabs/firestore-web/#0
+https://firebase.google.com/docs/reference/js/firebase.firestore
+
 
